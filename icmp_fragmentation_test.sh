@@ -48,7 +48,7 @@ if ! ip route flush cache; then
 fi
 
 # Start a tcpdump, listening for icmp packages
-( timeout 10 tcpdump -c 50 -i ${nic} -nn -w test.pcap host $checkHost ) > /dev/null 2>&1 &
+( timeout 10 tcpdump -c 50 -i ${nic} -nn -w test.pcap host $ip ) > /dev/null 2>&1 &
 
 sleep 1
 
