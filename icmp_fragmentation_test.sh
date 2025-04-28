@@ -7,7 +7,7 @@
 
 checkHost=icmpcheck.popcount.org
 url=http://${checkHost}/icmp
-nic=$(ip route list|grep default|sed 's/.* dev //g') # Alternativly define statically, like eth0
+nic=$(ip route list|grep default|sed 's/.* dev //g'|awk '{print $1}') # Alternativly define statically, like eth0
 myIp=$(ip addr show $nic | awk '/inet/ {print $2}'| head -n 1 | cut -d / -f 1)
 colorOff='\033[0m'	# Reset color
 colorRed='\033[0;31m'	# Red
